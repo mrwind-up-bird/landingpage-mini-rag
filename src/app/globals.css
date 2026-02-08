@@ -1,0 +1,205 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  --font-heading: var(--font-outfit);
+  --font-body: var(--font-jakarta);
+  --font-mono: var(--font-fira-code);
+}
+
+:root {
+  /* ── Base ── */
+  --bg: #050510;
+  --bg-gradient: radial-gradient(ellipse at 20% 50%, #0a0a2e 0%, #050510 70%);
+
+  /* ── Glass Surfaces ── */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-bg-hover: rgba(255, 255, 255, 0.06);
+  --glass-bg-elevated: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 255, 255, 0.15);
+  --glass-blur: 20px;
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --glass-glow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  /* ── Text ── */
+  --text-primary: #f0f0f5;
+  --text-secondary: rgba(240, 240, 245, 0.55);
+  --text-tertiary: rgba(240, 240, 245, 0.3);
+
+  /* ── Accent — luminous cyan ── */
+  --accent: #00d4ff;
+  --accent-glow: rgba(0, 212, 255, 0.15);
+  --accent-soft: rgba(0, 212, 255, 0.06);
+
+  /* ── Warm accent — amber ── */
+  --warm: #ff9f43;
+  --warm-glow: rgba(255, 159, 67, 0.12);
+
+  /* ── Status ── */
+  --success: #34d399;
+  --error: #f87171;
+}
+
+/* ── Glass utility class ── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow), var(--glass-glow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  contain: layout style paint;
+}
+
+.glass:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* ── Ambient background orbs ── */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.orb-cyan {
+  width: 40vw;
+  height: 40vw;
+  top: -10%;
+  left: -5%;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+  animation: float 20s ease-in-out infinite;
+}
+
+.orb-amber {
+  width: 30vw;
+  height: 30vw;
+  bottom: -10%;
+  right: -5%;
+  background: radial-gradient(circle, rgba(255, 159, 67, 0.05) 0%, transparent 70%);
+  animation: float 25s ease-in-out infinite reverse;
+}
+
+.orb-violet {
+  width: 50vw;
+  height: 50vw;
+  top: 40%;
+  left: 30%;
+  background: radial-gradient(circle, rgba(120, 80, 255, 0.04) 0%, transparent 70%);
+  animation: float 30s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+/* ── Grain overlay ── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+body {
+  background: var(--bg);
+  background-image: var(--bg-gradient);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Skip link ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 100;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ── MiniRAG widget overrides ── */
+minirag-widget {
+  --primary: #00d4ff;
+  --primary-hover: #00b8e0;
+  --bg: rgba(10, 10, 30, 0.95);
+  --bg-secondary: rgba(255, 255, 255, 0.03);
+  --text: #f0f0f5;
+  --text-secondary: rgba(240, 240, 245, 0.55);
+  --border: rgba(255, 255, 255, 0.08);
+  --radius: 16px;
+}
+
+/* ── Prose (blog) styling ── */
+.prose-glass {
+  --tw-prose-body: var(--text-primary);
+  --tw-prose-headings: var(--text-primary);
+  --tw-prose-links: var(--accent);
+  --tw-prose-bold: var(--text-primary);
+  --tw-prose-code: var(--accent);
+  --tw-prose-pre-bg: rgba(255, 255, 255, 0.03);
+  --tw-prose-pre-code: var(--text-primary);
+  --tw-prose-quotes: var(--text-secondary);
+  --tw-prose-quote-borders: var(--glass-border);
+  --tw-prose-hr: var(--glass-border);
+}
+
+.prose-glass pre {
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+}
+
+.prose-glass code:not(pre code) {
+  background: rgba(0, 212, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+.prose-glass a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-glass a:hover {
+  color: #00b8e0;
+}
