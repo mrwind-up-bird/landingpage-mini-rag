@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const links = [
-  { label: "Features", href: "#features" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Quickstart", href: "#quickstart" },
+  { label: "Features", href: "/#features" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Quickstart", href: "/#quickstart" },
   { label: "Blog", href: "/blog" },
 ];
 
@@ -65,7 +65,7 @@ export function Navigation() {
             <GitHubIcon />
           </a>
           <a
-            href="#quickstart"
+            href="/#quickstart"
             className="inline-flex items-center rounded-xl bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--bg)] transition-colors hover:bg-[#00b8e0]"
           >
             Get Started
@@ -116,7 +116,7 @@ export function Navigation() {
             <GitHubIcon /> GitHub
           </a>
           <a
-            href="#quickstart"
+            href="/#quickstart"
             onClick={() => setOpen(false)}
             className="mt-2 inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-5 py-3 text-sm font-semibold text-[var(--bg)] transition-colors hover:bg-[#00b8e0]"
           >

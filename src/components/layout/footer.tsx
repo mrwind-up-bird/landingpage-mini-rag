@@ -2,8 +2,8 @@ const columns = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "#features" },
-      { label: "Quickstart", href: "#quickstart" },
+      { label: "Features", href: "/#features" },
+      { label: "Quickstart", href: "/#quickstart" },
       { label: "Blog", href: "/blog" },
     ],
   },
@@ -12,7 +12,7 @@ const columns = [
     links: [
       { label: "GitHub", href: "https://github.com/mrwind-up-bird/mini-chat-rag", external: true },
       { label: "Documentation", href: "https://github.com/mrwind-up-bird/mini-chat-rag#readme", external: true },
-      { label: "Widget Guide", href: "#quickstart" },
+      { label: "Widget Guide", href: "/#quickstart" },
     ],
   },
   {
