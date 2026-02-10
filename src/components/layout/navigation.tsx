@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
 const links = [
   { label: "Features", href: "/#features" },
@@ -23,23 +22,19 @@ export function Navigation() {
   return (
     <nav
       aria-label="Main navigation"
-      className={`fixed top-0 left-0 right-0 z-50 overflow-hidden transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "glass !rounded-none border-x-0 border-t-0"
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      {/* Background image — full width, 1:2 aspect (w:h), 40% mobile / 50% desktop */}
-      <Image
-        src="/header-minirag.png"
-        alt=""
-        fill
-        className="pointer-events-none object-cover object-center opacity-40 md:opacity-50"
+      {/* Background image — full width via CSS bg, 100% opacity */}
+      <div
+        className="absolute inset-0 bg-[url('/header-minirag.png')] bg-cover bg-center"
         aria-hidden="true"
-        priority
       />
 
-      <div className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+      <div className="relative mx-auto flex min-h-[56px] max-w-6xl items-center justify-between px-4 py-4 sm:px-6 md:min-h-[200px]">
         {/* Logo — links home, no text (image is the branding) */}
         <a href="/" aria-label="MiniRAG Home" className="h-6 w-6" />
 

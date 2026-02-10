@@ -48,7 +48,7 @@ export default async function BlogPost({ params }: Props) {
   return (
     <>
       <Navigation />
-      <main id="main" className="relative z-2 px-4 pt-28 pb-20 sm:px-6 sm:pt-36">
+      <main id="main" className="relative z-2 px-4 pt-24 pb-20 sm:px-6 sm:pt-28 md:pt-56">
         <article className="mx-auto max-w-3xl">
           <Reveal>
             <a

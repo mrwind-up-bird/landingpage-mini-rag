@@ -32,7 +32,7 @@ export default async function BlogDatePage({ params }: Props) {
   return (
     <>
       <Navigation />
-      <main id="main" className="relative z-2 px-4 pt-28 pb-20 sm:px-6 sm:pt-36">
+      <main id="main" className="relative z-2 px-4 pt-24 pb-20 sm:px-6 sm:pt-28 md:pt-56">
         <div className="mx-auto max-w-4xl">
           <Reveal>
             <a
