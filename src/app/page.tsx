@@ -5,6 +5,7 @@ import { HowItWorks } from "@/components/sections/how-it-works";
 import { WidgetPreview } from "@/components/sections/widget-preview";
 import { Quickstart } from "@/components/sections/quickstart";
 import { CTA } from "@/components/sections/cta";
+import { FAQ } from "@/components/sections/faq";
 import { Footer } from "@/components/layout/footer";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <HowItWorks />
         <WidgetPreview />
         <Quickstart />
+        <FAQ />
         <CTA />
       </main>
       <Footer />
