@@ -29,23 +29,19 @@ export function Navigation() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      {/* Background image — contained, centered, max 100px tall */}
-      <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
-        <Image
-          src="/header-minirag.png"
-          alt=""
-          width={1200}
-          height={300}
-          className="pointer-events-none h-auto max-h-[100px] w-full object-contain opacity-50"
-          priority
-        />
-      </div>
+      {/* Background image — full width, 1:2 aspect (w:h), 40% mobile / 50% desktop */}
+      <Image
+        src="/header-minirag.png"
+        alt=""
+        fill
+        className="pointer-events-none object-cover object-center opacity-40 md:opacity-50"
+        aria-hidden="true"
+        priority
+      />
 
       <div className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        {/* Logo */}
-        <a href="/" className="font-[family-name:var(--font-heading)] text-xl font-bold text-[var(--text-primary)] tracking-[-0.03em]">
-          Mini<span className="relative">R<span className="absolute -top-0.5 -right-1.5 h-1.5 w-1.5 rounded-full bg-[var(--accent)]" /></span>AG
-        </a>
+        {/* Logo — links home, no text (image is the branding) */}
+        <a href="/" aria-label="MiniRAG Home" className="h-6 w-6" />
 
         {/* Desktop links */}
         <div className="hidden items-center gap-8 md:flex">
