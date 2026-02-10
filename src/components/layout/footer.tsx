@@ -26,7 +26,7 @@ const columns = [
 export function Footer() {
   return (
     <footer className="relative z-2 border-t border-[var(--glass-border)] mt-32">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 py-16 pb-24 sm:px-6 sm:pb-16">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {columns.map((col) => (
             <div key={col.title}>
