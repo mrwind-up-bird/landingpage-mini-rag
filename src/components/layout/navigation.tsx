@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const links = [
   { label: "Features", href: "#features" },
@@ -29,11 +30,15 @@ export function Navigation() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <a
-          href="/"
-          className="font-[family-name:var(--font-heading)] text-xl font-bold text-[var(--text-primary)] tracking-[-0.03em]"
-        >
-          Min<span className="relative">i<span className="absolute -top-0.5 -right-1.5 h-1.5 w-1.5 rounded-full bg-[var(--accent)]" /></span>RAG
+        <a href="/" className="flex items-center">
+          <Image
+            src="/logo-minirag.png"
+            alt="MiniRAG"
+            width={140}
+            height={40}
+            className="h-9 w-auto"
+            priority
+          />
         </a>
 
         {/* Desktop links */}

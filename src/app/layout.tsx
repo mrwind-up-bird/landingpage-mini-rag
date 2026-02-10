@@ -57,6 +57,7 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
+        <div className="page-background" aria-hidden="true" />
         <div className="orb orb-cyan" aria-hidden="true" />
         <div className="orb orb-amber" aria-hidden="true" />
         <div className="orb orb-violet" aria-hidden="true" />

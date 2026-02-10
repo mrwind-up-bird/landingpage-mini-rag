@@ -126,6 +126,16 @@ body {
   min-height: 100vh;
 }
 
+/* ── Background image overlay ── */
+.page-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url("/background-minirag.jpg") center center / cover no-repeat;
+  opacity: 0.25;
+}
+
 /* ── Scroll reveal ── */
 .reveal {
   opacity: 0;
