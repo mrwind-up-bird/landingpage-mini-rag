@@ -13,19 +13,19 @@
   --bg-gradient: radial-gradient(ellipse at 20% 50%, #0a0a2e 0%, #050510 70%);
 
   /* ── Glass Surfaces ── */
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-bg-hover: rgba(255, 255, 255, 0.06);
-  --glass-bg-elevated: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-border-hover: rgba(255, 255, 255, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-hover: rgba(255, 255, 255, 0.10);
+  --glass-bg-elevated: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-hover: rgba(255, 255, 255, 0.18);
   --glass-blur: 20px;
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   --glass-glow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
   /* ── Text ── */
   --text-primary: #f0f0f5;
-  --text-secondary: rgba(240, 240, 245, 0.55);
-  --text-tertiary: rgba(240, 240, 245, 0.3);
+  --text-secondary: rgba(240, 240, 245, 0.7);
+  --text-tertiary: rgba(240, 240, 245, 0.45);
 
   /* ── Accent — luminous cyan ── */
   --accent: #00d4ff;
@@ -133,7 +133,7 @@ body {
   z-index: 0;
   pointer-events: none;
   background: url("/background-minirag.jpg") center center / cover no-repeat;
-  opacity: 0.25;
+  opacity: 0.15;
 }
 
 /* ── Scroll reveal ── */
