@@ -172,11 +172,12 @@ minirag-widget {
   --primary: #00d4ff;
   --primary-hover: #00b8e0;
   --bg: rgba(10, 10, 30, 0.95);
-  --bg-secondary: rgba(255, 255, 255, 0.03);
+  --bg-secondary: rgba(255, 255, 255, 0.06);
   --text: #f0f0f5;
   --text-secondary: rgba(240, 240, 245, 0.55);
-  --border: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.1);
   --radius: 16px;
+  --shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.6);
   z-index: 9999;
   animation: chatbot-bob 3s ease-in-out infinite;
   filter: drop-shadow(0 4px 20px rgba(0, 212, 255, 0.3));
