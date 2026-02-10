@@ -23,59 +23,65 @@ export function Navigation() {
   return (
     <nav
       aria-label="Main navigation"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 overflow-hidden transition-all duration-300 ${
         scrolled
           ? "glass !rounded-none border-x-0 border-t-0"
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Header image */}
-        <a href="/" className="block py-2">
-          <Image
-            src="/header-minirag.png"
-            alt="MiniRAG"
-            width={1200}
-            height={300}
-            className="h-auto max-h-[100px] w-auto"
-            priority
-          />
+      {/* Background image */}
+      <Image
+        src="/header-minirag.png"
+        alt=""
+        fill
+        className="pointer-events-none object-cover object-center opacity-50"
+        aria-hidden="true"
+        priority
+      />
+
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+        {/* Logo */}
+        <a href="/" className="font-[family-name:var(--font-heading)] text-xl font-bold text-[var(--text-primary)] tracking-[-0.03em]">
+          Mini<span className="relative">R<span className="absolute -top-0.5 -right-1.5 h-1.5 w-1.5 rounded-full bg-[var(--accent)]" /></span>AG
         </a>
 
-        {/* Desktop links — overlaid on the right */}
-        <div className="absolute inset-y-0 right-6 hidden items-center gap-6 md:flex">
+        {/* Desktop links */}
+        <div className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
+              className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
             >
               {link.label}
             </a>
           ))}
+        </div>
+
+        <div className="hidden items-center gap-4 md:flex">
           <a
             href="https://github.com/mrwind-up-bird/mini-chat-rag"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View on GitHub"
-            className="text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
+            className="text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
           >
             <GitHubIcon />
           </a>
           <a
             href="/#quickstart"
-            className="inline-flex items-center rounded-xl bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--bg)] transition-colors hover:bg-[#00b8e0] shadow-[0_0_20px_var(--accent-glow)]"
+            className="inline-flex items-center rounded-xl bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--bg)] transition-colors hover:bg-[#00b8e0]"
           >
             Get Started
           </a>
         </div>
 
-        {/* Mobile hamburger — overlaid on the right */}
+        {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="absolute top-1/2 right-4 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-xl text-[var(--text-primary)] transition-colors hover:bg-[var(--glass-bg-hover)] md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-xl text-[var(--text-primary)] transition-colors hover:bg-[var(--glass-bg-hover)] md:hidden"
         >
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             {open ? (
