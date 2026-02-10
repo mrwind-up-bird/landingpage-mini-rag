@@ -29,15 +29,17 @@ export function Navigation() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      {/* Background image */}
-      <Image
-        src="/header-minirag.png"
-        alt=""
-        fill
-        className="pointer-events-none object-cover object-center opacity-50"
-        aria-hidden="true"
-        priority
-      />
+      {/* Background image — contained, centered, max 100px tall */}
+      <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+        <Image
+          src="/header-minirag.png"
+          alt=""
+          width={1200}
+          height={300}
+          className="pointer-events-none h-auto max-h-[100px] w-full object-contain opacity-50"
+          priority
+        />
+      </div>
 
       <div className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         {/* Logo */}
