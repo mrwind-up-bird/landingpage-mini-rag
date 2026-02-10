@@ -34,36 +34,36 @@ export function Navigation() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto flex min-h-[56px] max-w-6xl items-center justify-between px-4 py-4 sm:px-6 md:min-h-[200px]">
+      <div className="relative mx-auto flex min-h-[56px] max-w-6xl items-end justify-between px-4 pb-3 pt-3 sm:px-6 md:min-h-[200px] md:pb-4">
         {/* Logo — links home, no text (image is the branding) */}
-        <a href="/" aria-label="MiniRAG Home" className="h-6 w-6" />
+        <a href="/" aria-label="MiniRAG Home" className="mb-1 h-6 w-6 md:mb-0" />
 
-        {/* Desktop links */}
-        <div className="hidden items-center gap-8 md:flex">
+        {/* Desktop links — glass pills, bottom-aligned */}
+        <div className="hidden items-center gap-2 md:flex">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+              className="rounded-xl bg-[rgba(5,5,16,0.5)] px-4 py-2 text-[15px] font-medium text-[var(--text-primary)] backdrop-blur-sm transition-colors hover:bg-[rgba(5,5,16,0.7)] hover:text-[var(--accent)]"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-3 md:flex">
           <a
             href="https://github.com/mrwind-up-bird/mini-chat-rag"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View on GitHub"
-            className="text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+            className="rounded-xl bg-[rgba(5,5,16,0.5)] p-2.5 text-[var(--text-primary)] backdrop-blur-sm transition-colors hover:bg-[rgba(5,5,16,0.7)] hover:text-[var(--accent)]"
           >
             <GitHubIcon />
           </a>
           <a
             href="/#quickstart"
-            className="inline-flex items-center rounded-xl bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--bg)] transition-colors hover:bg-[#00b8e0]"
+            className="inline-flex items-center rounded-xl bg-[var(--accent)] px-6 py-2.5 text-[15px] font-semibold text-[var(--bg)] transition-colors hover:bg-[#00b8e0]"
           >
             Get Started
           </a>
@@ -74,7 +74,7 @@ export function Navigation() {
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="flex h-10 w-10 items-center justify-center rounded-xl text-[var(--text-primary)] transition-colors hover:bg-[var(--glass-bg-hover)] md:hidden"
+          className="mb-1 flex h-10 w-10 items-center justify-center rounded-xl text-[var(--text-primary)] transition-colors hover:bg-[var(--glass-bg-hover)] md:hidden"
         >
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             {open ? (
