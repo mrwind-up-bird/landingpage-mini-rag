@@ -168,6 +168,8 @@ body {
 }
 
 /* ── MiniRAG widget ── */
+/* NOTE: Do NOT apply transform, filter, or will-change to the host element.
+   These create a new containing block, breaking position:fixed inside Shadow DOM. */
 minirag-widget {
   --primary: #00d4ff;
   --primary-hover: #00b8e0;
@@ -178,20 +180,6 @@ minirag-widget {
   --border: rgba(255, 255, 255, 0.1);
   --radius: 16px;
   --shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.6);
-  z-index: 9999;
-  animation: chatbot-bob 3s ease-in-out infinite;
-  filter: drop-shadow(0 4px 20px rgba(0, 212, 255, 0.3));
-  transition: filter 0.3s ease;
-}
-
-minirag-widget:hover {
-  animation: none;
-  filter: drop-shadow(0 4px 28px rgba(0, 212, 255, 0.5));
-}
-
-@keyframes chatbot-bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
 }
 
 /* ── Prose (blog) styling ── */
