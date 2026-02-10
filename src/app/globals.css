@@ -179,6 +179,23 @@ minirag-widget {
   --radius: 16px;
 }
 
+/* ── Chatbot widget animation ── */
+minirag-widget {
+  animation: chatbot-bob 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 20px rgba(0, 212, 255, 0.3));
+  transition: filter 0.3s ease;
+}
+
+minirag-widget:hover {
+  animation: none;
+  filter: drop-shadow(0 4px 28px rgba(0, 212, 255, 0.5));
+}
+
+@keyframes chatbot-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
 /* ── Prose (blog) styling ── */
 .prose-glass {
   --tw-prose-body: var(--text-primary);
