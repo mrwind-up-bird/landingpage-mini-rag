@@ -10,7 +10,7 @@ const badges = [
 
 export function Hero() {
   return (
-    <section className="relative z-2 px-4 pt-28 pb-20 sm:px-6 sm:pt-36 lg:pt-44">
+    <section className="relative z-2 px-4 pt-32 pb-20 sm:px-6 sm:pt-40 lg:pt-48">
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left — Copy */}
