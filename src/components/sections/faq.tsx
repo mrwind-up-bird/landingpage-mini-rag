@@ -5,44 +5,44 @@ import { Reveal } from "@/components/ui/reveal";
 
 const faqs = [
   {
-    question: "What is MiniRAG?",
+    question: "What makes MiniRAG different from hosted RAG solutions?",
     answer:
-      "MiniRAG is an open-source, self-hosted Retrieval-Augmented Generation (RAG) chatbot platform. It lets you ingest your own documents (PDFs, DOCX, URLs, text), store them as vector embeddings, and chat with your data using any LLM provider — all under your control.",
+      "You own everything. MiniRAG runs on your infrastructure \u2014 your data never leaves your servers. No vendor lock-in, no per-query pricing, no usage limits. Full source code under MIT.",
   },
   {
-    question: "Is MiniRAG free to use?",
+    question: "Can I use MiniRAG in production?",
     answer:
-      "Yes. MiniRAG is open-source under the MIT license. You can use it for personal and commercial projects at no cost. You only pay for your own infrastructure (hosting, LLM API keys).",
+      "Yes. MiniRAG is battle-tested with 129 automated tests (pytest + Newman), async FastAPI for high concurrency, connection pooling, and proper error handling. It runs PostgreSQL, Qdrant, and Redis \u2014 all production-grade infrastructure.",
   },
   {
     question: "Which LLM providers does MiniRAG support?",
     answer:
-      "MiniRAG is provider-agnostic via LiteLLM. It supports OpenAI, Anthropic, Ollama (local models), and any other provider compatible with the OpenAI API format. You can switch providers per bot profile without changing code.",
+      "Any provider compatible with the OpenAI API format via LiteLLM: OpenAI, Anthropic, Google Gemini, Ollama (local models), Azure OpenAI, and more. Switch providers per bot profile without code changes.",
   },
   {
-    question: "How do I deploy MiniRAG?",
+    question: "How does the embeddable widget work?",
     answer:
-      "Clone the repository, copy the .env.example file, and run docker compose up -d. The entire stack — PostgreSQL, Qdrant vector database, Redis, and the FastAPI backend — starts in under 5 minutes. See the Quickstart section above for step-by-step instructions.",
+      "Add one <script> tag to any website. The widget loads in a Shadow DOM for complete style isolation \u2014 no CSS conflicts. Customize colors, position, and behavior with CSS custom properties and data attributes.",
   },
   {
-    question: "What document formats can MiniRAG ingest?",
+    question: "What does the admin dashboard include?",
     answer:
-      "MiniRAG supports plain text, URLs (web scraping), PDF files, and DOCX documents. Documents are automatically chunked, embedded, and stored in the Qdrant vector database for semantic retrieval.",
+      "Bot profile management, document source ingestion, chat history with feedback tracking, webhook configuration, usage analytics with cost breakdowns, and user role management. All behind a glassmorphism UI with built-in chat testing.",
   },
   {
-    question: "Can I embed MiniRAG on my website?",
+    question: "How secure is MiniRAG?",
     answer:
-      "Yes. MiniRAG includes an embeddable chat widget. Add a single <script> tag to any website and the widget appears as a floating chat button. It uses Shadow DOM for style isolation, so it won't conflict with your existing CSS.",
+      "Four layers: Argon2id for password hashing, Fernet (AES-128-CBC) for encrypting LLM API keys at rest, HMAC-SHA256 for signed webhook deliveries, and JWT (HS256) for stateless session tokens. Multi-tenant isolation ensures complete data separation.",
   },
   {
-    question: "Is MiniRAG multi-tenant?",
+    question: "What infrastructure does MiniRAG require?",
     answer:
-      "Yes. MiniRAG provides complete multi-tenant isolation. Each tenant has separate data, API tokens, RBAC permissions, and encrypted credentials. This makes it suitable for SaaS platforms and organizations serving multiple clients.",
+      "Docker and Docker Compose. The stack includes PostgreSQL (structured data), Qdrant (vector storage), Redis (caching and task queues), and the FastAPI application. Minimum 2GB RAM recommended. All services are containerized.",
   },
   {
-    question: "What tech stack does MiniRAG use?",
+    question: "Can I run MiniRAG locally for development?",
     answer:
-      "MiniRAG is built with FastAPI (Python) for the backend, PostgreSQL for structured data, Qdrant for vector storage, Redis for caching and task queues, and Celery for background processing. The admin dashboard uses a modern glassmorphism UI.",
+      "Yes. Use the manual setup: create a Python virtualenv, install dependencies, run the supporting services with Docker Compose, and start the FastAPI server with hot-reload. Full development docs in the README.",
   },
 ];
 

@@ -8,11 +8,11 @@ export function CTA() {
         <Reveal>
           <div className="glass p-10 text-center sm:p-16">
             <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold tracking-[-0.03em] sm:text-4xl">
-              Ready to build your RAG chatbot?
+              Deploy your RAG chatbot today
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-[var(--text-secondary)]">
-              Open-source, self-hosted, and production-ready.
-              Star the repo and start building today.
+              Open-source. MIT licensed. Production-ready. Join developers
+              building intelligent chatbots with MiniRAG.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <GlassButton

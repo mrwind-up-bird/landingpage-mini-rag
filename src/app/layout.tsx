@@ -24,6 +24,8 @@ const firaCode = Fira_Code({
   display: "swap",
 });
 
+const SITE_URL = "https://landingpage-mini-rag.vercel.app";
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -33,19 +35,41 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "MiniRAG — Open-Source RAG Chatbot Platform",
   description:
-    "Self-hosted, multi-tenant RAG chatbot platform. Ingest documents, embed a widget, chat with your data. Open source under MIT.",
+    "Self-hosted, multi-tenant RAG chatbot platform. Ingest documents, embed a chat widget, and talk to your data with any LLM. Provider-agnostic, real-time streaming, 129 tests passing. Open source under MIT.",
+  keywords: [
+    "RAG",
+    "retrieval augmented generation",
+    "chatbot",
+    "open source",
+    "self-hosted",
+    "multi-tenant",
+    "LLM",
+    "vector search",
+    "Qdrant",
+    "FastAPI",
+    "embeddable widget",
+    "LiteLLM",
+    "provider agnostic",
+    "MiniRAG",
+  ],
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "MiniRAG — Open-Source RAG Chatbot Platform",
     description:
-      "Self-hosted, multi-tenant RAG chatbot platform. Deploy in minutes.",
+      "The open-source RAG platform that puts you in control. Multi-tenant architecture, provider-agnostic LLMs, real-time streaming. Deploy in 5 minutes.",
     type: "website",
     locale: "en_US",
+    url: SITE_URL,
+    siteName: "MiniRAG",
   },
   twitter: {
     card: "summary_large_image",
     title: "MiniRAG — Open-Source RAG Chatbot Platform",
     description:
-      "Self-hosted, multi-tenant RAG chatbot platform. Deploy in minutes.",
+      "The open-source RAG platform that puts you in control. Multi-tenant architecture, provider-agnostic LLMs, real-time streaming. Deploy in 5 minutes.",
   },
   icons: {
     icon: [
@@ -55,6 +79,42 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   robots: { index: true, follow: true },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "MiniRAG",
+      url: SITE_URL,
+      logo: `${SITE_URL}/icon-512.png`,
+      sameAs: ["https://github.com/mrwind-up-bird/mini-chat-rag"],
+    },
+    {
+      "@type": "WebSite",
+      name: "MiniRAG",
+      url: SITE_URL,
+      description:
+        "Open-source, self-hosted RAG chatbot platform with multi-tenant isolation and provider-agnostic LLMs.",
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "MiniRAG",
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Linux, macOS, Windows (Docker)",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      url: SITE_URL,
+      downloadUrl: "https://github.com/mrwind-up-bird/mini-chat-rag",
+      license: "https://opensource.org/licenses/MIT",
+      description:
+        "Self-hosted, multi-tenant RAG chatbot platform. Ingest documents, embed a chat widget, and talk to your data with any LLM.",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -67,6 +127,10 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${jakarta.variable} ${firaCode.variable} font-[family-name:var(--font-jakarta)] antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <a href="#main" className="skip-link">
           Skip to content
         </a>

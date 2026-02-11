@@ -7,6 +7,8 @@ import { Footer } from "@/components/layout/footer";
 import { BlogRenderer } from "@/components/blog/blog-renderer";
 import { Reveal } from "@/components/ui/reveal";
 
+const SITE_URL = "https://landingpage-mini-rag.vercel.app";
+
 interface Props {
   params: Promise<{ date: string; slug: string }>;
 }
@@ -45,8 +47,34 @@ export default async function BlogPost({ params }: Props) {
 
   const html = await renderMarkdown(post.content);
 
+  const blogPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "MiniRAG",
+      url: SITE_URL,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${date}/${slug}`,
+    },
+    keywords: post.tags.join(", "),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+      />
       <Navigation />
       <main id="main" className="relative z-2 px-4 pt-24 pb-20 sm:px-6 sm:pt-28 md:pt-56">
         <article className="mx-auto max-w-3xl">

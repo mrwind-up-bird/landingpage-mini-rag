@@ -46,10 +46,12 @@ export function Quickstart() {
         <Reveal>
           <div className="mb-12 text-center">
             <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold tracking-[-0.03em] sm:text-4xl">
-              Quickstart
+              From zero to production in 5 minutes
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[var(--text-secondary)]">
-              Get up and running in your preferred way.
+              Choose your deployment method. Every path gets you a fully
+              functional RAG platform with multi-tenant isolation, vector
+              search, and streaming chat.
             </p>
           </div>
         </Reveal>

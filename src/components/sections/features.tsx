@@ -5,7 +5,7 @@ const features = [
   {
     title: "Multi-Tenant Isolation",
     description:
-      "Complete data separation per tenant. API tokens, RBAC, encrypted credentials.",
+      "Complete data separation. tenant_id on every query, dedicated API tokens, and role-based access control.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
         <rect x="3" y="12" width="10" height="13" rx="2" stroke="currentColor" strokeWidth="1.5" />
@@ -17,7 +17,7 @@ const features = [
   {
     title: "RAG Pipeline",
     description:
-      "Ingest text, URLs, PDFs, DOCX. Auto-chunk, embed, vector-store in Qdrant.",
+      "Ingest text, URLs, PDFs, and DOCX files. Auto-chunk, embed with any model, and vector-store in Qdrant.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
         <path d="M4 7h20M4 14h20M4 21h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -27,9 +27,9 @@ const features = [
     ),
   },
   {
-    title: "Provider-Agnostic LLM",
+    title: "Provider-Agnostic LLMs",
     description:
-      "OpenAI, Anthropic, Ollama, any LiteLLM provider. Switch per bot profile.",
+      "OpenAI, Anthropic, Google, Ollama — switch providers per bot profile. Powered by LiteLLM.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
         <circle cx="14" cy="14" r="10" stroke="currentColor" strokeWidth="1.5" />
@@ -39,9 +39,21 @@ const features = [
     ),
   },
   {
+    title: "Real-Time Streaming",
+    description:
+      "Server-Sent Events with structured protocol: sources \u2192 content deltas \u2192 completion. Sub-second first token.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <path d="M4 10c4-4 8 4 12 0s8-4 12 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M4 18c4-4 8 4 12 0s8-4 12 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="22" cy="14" r="2" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
     title: "Embeddable Widget",
     description:
-      'One <script> tag. Shadow DOM. Custom CSS props. Any website, 30 seconds.',
+      "One script tag. Shadow DOM isolation. CSS custom properties for theming. Any website, 30 seconds.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
         <rect x="3" y="5" width="22" height="18" rx="3" stroke="currentColor" strokeWidth="1.5" />
@@ -53,7 +65,7 @@ const features = [
   {
     title: "Admin Dashboard",
     description:
-      "Glassmorphism UI. Bots, sources, users, tokens, analytics. Built-in chat testing.",
+      "Manage bot profiles, sources, chat history, and analytics. Built-in chat testing with streaming preview.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
         <rect x="3" y="3" width="10" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" />
@@ -64,12 +76,42 @@ const features = [
     ),
   },
   {
-    title: "Battle-Tested",
+    title: "Webhooks & Events",
     description:
-      "77 pytest + 93 Newman assertions. Async FastAPI. PostgreSQL + Qdrant + Redis.",
+      "Real-time notifications for source.ingested, source.failed, chat.message. HMAC-SHA256 signed payloads.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-        <path d="M14 3l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+        <circle cx="8" cy="20" r="4" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="20" cy="8" r="4" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M11 18l6-8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M20 12v6a2 2 0 01-2 2h-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M16 22l-2-2 2-2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    title: "Auto-Refresh",
+    description:
+      "Scheduled URL re-ingestion — hourly, daily, or weekly. Keep your knowledge base current automatically via ARQ cron.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <circle cx="14" cy="14" r="10" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M14 8v6l4 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M22 6l-1 4-4-1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    title: "Usage Analytics",
+    description:
+      "Cost tracking per model, token usage breakdown, user feedback analytics, and CSV export.",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <path d="M4 24V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M10 24V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M16 24V14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M22 24V4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M4 12l6-4 6 6 6-10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },

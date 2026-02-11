@@ -11,7 +11,7 @@ const scriptTag = `<script
   data-api-token="YOUR_TOKEN">
 </script>`;
 
-export function WidgetPreview() {
+export function WidgetShowcase() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {

@@ -6,21 +6,21 @@ const steps = [
     number: "01",
     title: "Deploy",
     description:
-      "Clone the repo, run docker compose up -d, and bootstrap your first tenant. You're live in under 5 minutes.",
+      "One command. Five minutes. You\u2019re live. Clone, configure, docker compose up. PostgreSQL, Qdrant, Redis, and FastAPI all orchestrated. Bootstrap your first tenant with a single API call.",
     code: "docker compose up -d",
   },
   {
     number: "02",
     title: "Ingest",
     description:
-      "Upload sources — text, URLs, PDFs, DOCX files. MiniRAG auto-chunks, embeds, and upserts vectors into Qdrant.",
+      "Feed your knowledge. Text, URLs, PDFs \u2014 auto-chunked and embedded. Upload documents through the API or admin dashboard. MiniRAG chunks content intelligently, generates embeddings, and stores vectors in Qdrant. Set up auto-refresh for URLs that change.",
     code: "POST /v1/sources",
   },
   {
     number: "03",
     title: "Chat",
     description:
-      "Users ask questions, RAG retrieves relevant context from your knowledge base, and the LLM generates grounded answers.",
+      "Ask anything. Get grounded answers with source citations. Your users ask questions. RAG retrieves relevant context. The LLM generates answers with source citations, streamed in real-time via SSE.",
     code: "POST /v1/chat",
   },
 ];

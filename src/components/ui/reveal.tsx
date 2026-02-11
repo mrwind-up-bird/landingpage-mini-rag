@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import {
+  motion,
+  useInView,
+  useReducedMotion,
+} from "framer-motion";
+import { useRef, type ReactNode } from "react";
+import { fadeInUp, springGentle } from "./motion";
 
 interface RevealProps {
   children: ReactNode;
@@ -10,32 +16,22 @@ interface RevealProps {
 
 export function Reveal({ children, delay = 0, className = "" }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add("visible");
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.15 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  const isInView = useInView(ref, { once: true, amount: 0.15 });
+  const prefersReduced = useReducedMotion();
 
   return (
-    <div
+    <motion.div
       ref={ref}
-      className={`reveal ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={className}
+      initial={prefersReduced ? false : "hidden"}
+      animate={isInView ? "visible" : "hidden"}
+      variants={fadeInUp}
+      transition={{
+        ...springGentle,
+        delay: delay / 1000,
+      }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }

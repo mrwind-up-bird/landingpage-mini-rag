@@ -1,12 +1,36 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { GlassButton } from "@/components/ui/glass-button";
 import { GlassCard } from "@/components/ui/glass-card";
 import { Reveal } from "@/components/ui/reveal";
 
 const badges = [
-  "77 Tests Passing",
+  "129 Tests Passing",
   "Multi-Tenant",
   "Provider-Agnostic",
+  "Real-Time Streaming",
 ];
+
+const textStagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+} as const;
+
+const textChild = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+} as const;
+
+const terminalSpring = {
+  hidden: { opacity: 0, y: 40, scale: 0.97 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { type: "spring" as const, stiffness: 80, damping: 18, delay: 0.3 },
+  },
+} as const;
 
 export function Hero() {
   return (
@@ -14,8 +38,13 @@ export function Hero() {
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left — Copy */}
-          <div className="text-center lg:text-left">
-            <Reveal>
+          <motion.div
+            className="text-center lg:text-left"
+            variants={textStagger}
+            initial="hidden"
+            animate="show"
+          >
+            <motion.div variants={textChild}>
               <h1 className="font-[family-name:var(--font-heading)] text-4xl font-extrabold leading-[1.1] tracking-[-0.03em] text-[var(--text-primary)] sm:text-5xl lg:text-6xl">
                 Your AI.
                 <br />
@@ -23,14 +52,15 @@ export function Hero() {
                 <br />
                 Your Infrastructure.
               </h1>
-            </Reveal>
-            <Reveal delay={100}>
+            </motion.div>
+            <motion.div variants={textChild}>
               <p className="mt-6 max-w-lg text-lg leading-relaxed text-[var(--text-secondary)] mx-auto lg:mx-0">
-                Open-source RAG chatbot platform. Self-hosted. Multi-tenant.
-                Provider-agnostic. Deploy in minutes.
+                The open-source RAG platform that puts you in control.
+                Multi-tenant architecture. Provider-agnostic LLMs. Real-time
+                streaming. Deploy in 5 minutes.
               </p>
-            </Reveal>
-            <Reveal delay={200}>
+            </motion.div>
+            <motion.div variants={textChild}>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
                 <GlassButton href="#quickstart">Get Started</GlassButton>
                 <GlassButton
@@ -42,8 +72,8 @@ export function Hero() {
                   View on GitHub
                 </GlassButton>
               </div>
-            </Reveal>
-            <Reveal delay={300}>
+            </motion.div>
+            <motion.div variants={textChild}>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
                 {badges.map((badge) => (
                   <span
@@ -54,11 +84,15 @@ export function Hero() {
                   </span>
                 ))}
               </div>
-            </Reveal>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right — Terminal mockup */}
-          <Reveal delay={200}>
+          <motion.div
+            variants={terminalSpring}
+            initial="hidden"
+            animate="show"
+          >
             <GlassCard className="font-[family-name:var(--font-mono)] text-sm !p-0 overflow-hidden">
               <div className="flex items-center gap-2 border-b border-[var(--glass-border)] px-4 py-3">
                 <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
@@ -68,9 +102,6 @@ export function Hero() {
               </div>
               <pre className="overflow-x-auto p-5 text-[13px] leading-6">
                 <code>
-                  <Line prompt>git clone https://github.com/mrwind-up-bird/mini-chat-rag.git</Line>
-                  <Line prompt>cd mini-chat-rag</Line>
-                  <Line prompt>cp .env.example .env</Line>
                   <Line prompt>docker compose up -d</Line>
                   <Line className="text-[var(--success)]">✓ postgres ready</Line>
                   <Line className="text-[var(--success)]">✓ qdrant ready</Line>
@@ -80,11 +111,16 @@ export function Hero() {
                   <Line prompt className="text-[var(--accent)]">curl -X POST localhost:8000/v1/tenants \</Line>
                   <Line className="text-[var(--accent)]">{"  "}-H &quot;Authorization: Bearer $ADMIN_TOKEN&quot; \</Line>
                   <Line className="text-[var(--accent)]">{"  "}-d &apos;{`{"name":"my-org"}`}&apos;</Line>
-                  <Line className="text-[var(--warm)]">{`{"id":"...","name":"my-org","status":"active"}`}</Line>
+                  <Line className="text-[var(--warm)]">{`{"id":"t_9k3...","name":"my-org","status":"active"}`}</Line>
+                  <Line />
+                  <Line prompt className="text-[var(--accent)]">curl localhost:8000/v1/chat \</Line>
+                  <Line className="text-[var(--accent)]">{"  "}-H &quot;Authorization: Bearer $BOT_TOKEN&quot; \</Line>
+                  <Line className="text-[var(--accent)]">{"  "}-d &apos;{`{"message":"How does ingestion work?"}`}&apos;</Line>
+                  <Line className="text-[var(--warm)]">{`{"answer":"Documents are chunked, embedded, and...","sources":[...]}`}</Line>
                 </code>
               </pre>
             </GlassCard>
-          </Reveal>
+          </motion.div>
         </div>
       </div>
     </section>
