@@ -25,6 +25,12 @@ export function CTA() {
                 Star on GitHub
               </GlassButton>
               <GlassButton
+                href="/contact"
+                className="!bg-[var(--warning,#f59e0b)] !text-[var(--bg)] hover:!bg-[#d97706] !shadow-[0_0_20px_rgba(245,158,11,0.3)]"
+              >
+                Request a Demo
+              </GlassButton>
+              <GlassButton
                 href="https://github.com/mrwind-up-bird/mini-chat-rag#readme"
                 variant="ghost"
                 external

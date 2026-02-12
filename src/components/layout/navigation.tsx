@@ -8,6 +8,7 @@ const links = [
   { label: "Dashboard", href: "/#dashboard" },
   { label: "Quickstart", href: "/#quickstart" },
   { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Navigation() {

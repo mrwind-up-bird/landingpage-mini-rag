@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Outfit, Plus_Jakarta_Sans, Fira_Code } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ChatbotLoader } from "@/components/chatbot/chatbot-loader";
+import { StickyCTA } from "@/components/sections/sticky-cta";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -35,7 +38,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "MiniRAG — Open-Source RAG Chatbot Platform",
   description:
-    "Self-hosted, multi-tenant RAG chatbot platform. Ingest documents, embed a chat widget, and talk to your data with any LLM. Provider-agnostic, real-time streaming, 129 tests passing. Open source under MIT.",
+    "Self-hosted, multi-tenant RAG chatbot platform for businesses. Ingest documents, embed a chat widget, and let your team talk to your data with any LLM. Provider-agnostic, real-time streaming, fully open source under MIT.",
   keywords: [
     "RAG",
     "retrieval augmented generation",
@@ -51,6 +54,11 @@ export const metadata: Metadata = {
     "LiteLLM",
     "provider agnostic",
     "MiniRAG",
+    "self-hosted RAG chatbot",
+    "AI chatbot for business",
+    "document Q&A chatbot",
+    "deploy RAG chatbot",
+    "knowledge base AI",
   ],
   metadataBase: new URL(SITE_URL),
   alternates: {
@@ -139,6 +147,9 @@ export default function RootLayout({
         <div className="orb orb-amber" aria-hidden="true" />
         <div className="orb orb-violet" aria-hidden="true" />
         {children}
+        <Analytics />
+        <SpeedInsights />
+        <StickyCTA />
         <ChatbotLoader />
       </body>
     </html>
