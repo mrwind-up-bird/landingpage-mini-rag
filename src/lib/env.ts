@@ -8,6 +8,9 @@ export const env = {
   airtable: {
     apiKey: () => required("AIRTABLE_API_KEY"),
     baseId: () => required("AIRTABLE_BASE_ID"),
-    tableName: () => process.env.AIRTABLE_TABLE_NAME ?? "Leads",
+    table: () =>
+      process.env.AIRTABLE_TABLE_ID ??
+      process.env.AIRTABLE_TABLE_NAME ??
+      "Leads",
   },
 };

@@ -18,7 +18,7 @@ export async function submitContact(
 
   try {
     const response = await fetch(
-      `https://api.airtable.com/v0/${env.airtable.baseId()}/${encodeURIComponent(env.airtable.tableName())}`,
+      `https://api.airtable.com/v0/${env.airtable.baseId()}/${encodeURIComponent(env.airtable.table())}`,
       {
         method: "POST",
         headers: {
@@ -29,13 +29,13 @@ export async function submitContact(
           fields: {
             Name: parsed.data.name,
             Email: parsed.data.email,
-            Company: parsed.data.company ?? "",
+            ...(parsed.data.company ? { Company: parsed.data.company } : {}),
             "Inquiry Type": parsed.data.inquiryType,
             Message: parsed.data.message,
-            Source: parsed.data.source ?? "",
+            ...(parsed.data.source ? { Source: parsed.data.source } : {}),
             "Page URL": data.pageUrl ?? "",
             "Submitted At": new Date().toISOString(),
-            Status: "New",
+            Status: "Todo",
           },
         }),
       },
