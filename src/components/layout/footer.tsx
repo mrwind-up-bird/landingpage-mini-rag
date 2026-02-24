@@ -55,7 +55,15 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-12 border-t border-[var(--glass-border)] pt-8 text-center text-sm text-[var(--text-tertiary)]">
-          Built by Oli &middot; Open Source under MIT
+          &copy; 2026 Built by{" "}
+          <a
+            href="https://nyxcore.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+          >
+            nyxCore
+          </a>
         </div>
       </div>
     </footer>
